@@ -295,21 +295,26 @@ hr {
 }
 
 #home-button.current ~ hr {
-  margin-left: 3.8%;
+  margin-left: 1.5%;
   width: 11.5%;
 }
 
 #about-button.current ~ hr {
-  margin-left: 23.75%;
+  margin-left: 16%;
   width: 14%;
 }
 
+#experience-button.current ~ hr {
+  margin-left: 33.25%;
+  width: 21%;
+}
+
 #projects-button.current ~ hr {
-  margin-left: 46.25%;
-  width: 19.5%;
+  margin-left: 57.45%;
+  width: 18%;
 }
 
 #contact-button.current ~ hr {
-  margin-left: 74%;
-  width: 18.4%;
+  margin-left: 78.85%;
+  width: 16.5%;
 }

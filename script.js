@@ -12,10 +12,15 @@ $(".frame").scroll(function(e) {
       $(".current").removeClass("current");
       $("#home-button").addClass("current");
     }
-  } else if (scrollY < $("#projects").offset().top - $(".frame").offset().top + $(".frame").scrollTop()) {
+  } else if (scrollY < $("#experience").offset().top - $(".frame").offset().top + $(".frame").scrollTop()) {
     if ($("#about-button").attr("class") != "button current") {
       $(".current").removeClass("current");
       $("#about-button").addClass("current");
+    }
+  } else if (scrollY < $("#projects").offset().top - $(".frame").offset().top + $(".frame").scrollTop()) {
+    if ($("#experience-button").attr("class") != "button current") {
+      $(".current").removeClass("current");
+      $("#experience-button").addClass("current");
     }
   } else if (scrollY < $("#contact").offset().top + $(".frame").scrollTop() - $(window).height()) {
     if ($("#projects-button").attr("class") != "button current") {
