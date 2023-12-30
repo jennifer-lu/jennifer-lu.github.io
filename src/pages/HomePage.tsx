@@ -1,10 +1,14 @@
-import { Heading } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
+
+import PageWrapper from "../components/PageWrapper";
 
 const HomePage = () => {
   return (
-    <Heading as="h3" size="md">
-      Jennifer Lu
-    </Heading>
+    <PageWrapper>
+      <Text>Hi, I'm Jennifer</Text>
+      <Text>I like making things. Here are</Text>
+      <Text>some things that I've made.</Text>
+    </PageWrapper>
   );
 };
 
