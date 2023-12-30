@@ -3,7 +3,7 @@ import { Flex } from "@chakra-ui/react";
 
 import Navbar from "./Navbar";
 
-const NavbarPageWrapper = ({ children }: { children: ReactNode }) => {
+const PageWrapper = ({ children }: { children: ReactNode }) => {
   return (
     <Flex>
       <Navbar />
@@ -23,4 +23,4 @@ const NavbarPageWrapper = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export default NavbarPageWrapper;
+export default PageWrapper;

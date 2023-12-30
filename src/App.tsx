@@ -1,8 +1,12 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import HomePage from "./pages/HomePage";
 import theme from "./theme/theme";
+import HomePage from "./pages/HomePage";
+import PaintingsPage from "./pages/PaintingsPage";
+import PhotosPage from "./pages/PhotosPage";
+import ObjectsPage from "./pages/ObjectsPage";
+import ErrorPage from "./pages/ErrorPage";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -12,16 +16,17 @@ const App = () => {
     },
     {
       path: "/paintings",
-      element: <HomePage />,
+      element: <PaintingsPage />,
     },
     {
       path: "/photos",
-      element: <HomePage />,
+      element: <PhotosPage />,
     },
     {
       path: "/objects",
-      element: <HomePage />,
+      element: <ObjectsPage />,
     },
+    { path: "*", element: <ErrorPage /> },
   ]);
 
   return (

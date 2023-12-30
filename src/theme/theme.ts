@@ -24,8 +24,8 @@ const theme = extendTheme({
     useSystemColorMode: true,
   },
   fonts: {
-    body: `"Special Elite"`,
-    heading: `"Special Elite"`,
+    body: `"Poppins"`,
+    heading: `"Poppins"`,
   },
   styles: {
     global: {

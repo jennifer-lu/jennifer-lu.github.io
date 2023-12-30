@@ -2,6 +2,7 @@ const Button = {
   variants: {
     ghost: {
       color: "primary.300",
+      fontWeight: 400,
       _hover: {
         bg: "background.200",
       },
