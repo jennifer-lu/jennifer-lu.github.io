@@ -1,5 +1,14 @@
 import { useNavigate } from "react-router-dom";
-import { Button, Flex, Heading, HStack, Spacer } from "@chakra-ui/react";
+import {
+  Button,
+  Flex,
+  Heading,
+  HStack,
+  Icon,
+  IconButton,
+  Spacer,
+} from "@chakra-ui/react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -33,22 +42,22 @@ const Navbar = () => {
         <Button variant="ghost" onClick={() => navigate("/objects")}>
           Objects
         </Button>
-        <Button
+        <IconButton
           as="a"
           href="https://www.linkedin.com/in/-jennifer/"
           target="_blank"
+          aria-label="LinkedIn"
           variant="ghost"
-        >
-          LinkedIn
-        </Button>
-        <Button
+          icon={<Icon as={FaLinkedin} boxSize="16px" color="primary.300" />}
+        ></IconButton>
+        <IconButton
           as="a"
           href="https://github.com/jennifer-lu"
           target="_blank"
+          aria-label="GitHub"
           variant="ghost"
-        >
-          GitHub
-        </Button>
+          icon={<Icon as={FaGithub} boxSize="16px" color="primary.300" />}
+        ></IconButton>
       </HStack>
     </Flex>
   );
