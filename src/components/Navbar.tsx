@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import {
   Button,
   Flex,
@@ -8,6 +7,7 @@ import {
   Icon,
   IconButton,
   Spacer,
+  useColorMode,
 } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
@@ -16,7 +16,7 @@ import NavMenu from "./NavMenu";
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
 
-  const navigate = useNavigate();
+  const { colorMode } = useColorMode();
 
   useEffect(() => {
     window.onscroll = function () {
@@ -40,23 +40,23 @@ const NavBar = () => {
       gap="16px"
       zIndex="100"
       bg="background.100"
-      boxShadow={scrolled ? "lg" : "none"}
+      boxShadow={scrolled ? (colorMode === "light" ? "lg" : "dark-lg") : "none"}
       transition="box-shadow 0.3s ease-in-out"
     >
-      <Button variant="ghost" onClick={() => navigate("/")}>
+      <Button as="a" href="/" variant="ghost">
         <Heading as="h3" size="md">
           JENNIFER LU
         </Heading>
       </Button>
       <Spacer />
       <HStack display={{ base: "none", md: "flex" }} spacing="8px">
-        <Button variant="ghost" onClick={() => navigate("/paintings")}>
+        <Button as="a" href="/paintings" variant="ghost">
           Paintings
         </Button>
-        <Button variant="ghost" onClick={() => navigate("/photos")}>
+        <Button as="a" href="/photos" variant="ghost">
           Photos
         </Button>
-        <Button variant="ghost" onClick={() => navigate("/objects")}>
+        <Button as="a" href="/objects" variant="ghost">
           Objects
         </Button>
         <IconButton
