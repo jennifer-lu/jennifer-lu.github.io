@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   Button,
@@ -11,7 +12,19 @@ import {
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.onscroll = function () {
+      if (window.scrollY > 8) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+  }, []);
 
   return (
     <Flex
@@ -25,6 +38,8 @@ const Navbar = () => {
       gap="16px"
       zIndex="100"
       bg="background.100"
+      boxShadow={scrolled ? "lg" : "none"}
+      transition="box-shadow 0.3s ease-in-out"
     >
       <Button variant="ghost" onClick={() => navigate("/")}>
         <Heading as="h3" size="md">

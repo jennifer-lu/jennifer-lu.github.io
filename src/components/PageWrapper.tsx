@@ -12,6 +12,7 @@ const PageWrapper = ({ children }: { children: ReactNode }) => {
         height="100%"
         width="100%"
         marginTop="72px"
+        padding="16px 48px"
         direction="column"
         align="center"
         gap="32px"
