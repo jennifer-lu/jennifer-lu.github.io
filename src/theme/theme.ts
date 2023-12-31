@@ -2,6 +2,7 @@ import { extendTheme } from "@chakra-ui/react";
 
 import colors from "./colors";
 import Button from "./components/Button";
+import Menu from "./components/Menu";
 
 const theme = extendTheme({
   colors,
@@ -15,7 +16,7 @@ const theme = extendTheme({
         500: { default: "light.500", _dark: "dark.100" },
       },
       primary: {
-        300: { default: "dark.300", _dark: "light.300" },
+        300: { default: "dark.500", _dark: "light.500" },
       },
     },
   },
@@ -37,6 +38,7 @@ const theme = extendTheme({
   },
   components: {
     Button,
+    Menu,
   },
 });
 

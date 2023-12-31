@@ -1,18 +1,17 @@
 import { ReactNode } from "react";
 import { Flex } from "@chakra-ui/react";
 
-import Navbar from "./Navbar";
+import NavBar from "./NavBar";
 
 const PageWrapper = ({ children }: { children: ReactNode }) => {
   return (
     <Flex>
-      <Navbar />
+      <NavBar />
       <Flex
         as="main"
         height="100%"
         width="100%"
         marginTop="72px"
-        padding="16px 48px"
         direction="column"
         align="center"
         gap="32px"
