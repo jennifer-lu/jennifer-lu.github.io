@@ -17,8 +17,12 @@ import { CloseIcon } from "@chakra-ui/icons";
 
 import GalleryImage from "./GalleryImage";
 
+type ImageType = {
+  originalSrc?: string;
+} & Photo;
+
 type GalleryProps = {
-  images: Photo[];
+  images: ImageType[];
 };
 
 const Gallery = ({ images }: GalleryProps) => {
@@ -58,7 +62,11 @@ const Gallery = ({ images }: GalleryProps) => {
             <Flex direction="column" padding="8px 16px 16px 16px" gap="24px">
               <Image
                 loading="lazy"
-                src={images[imageIndex].src}
+                src={
+                  showOriginal
+                    ? images[imageIndex].originalSrc
+                    : images[imageIndex].src
+                }
                 alt={images[imageIndex].alt}
                 borderRadius="8px"
               />
@@ -72,10 +80,12 @@ const Gallery = ({ images }: GalleryProps) => {
                     );
                   })}
                 </Flex>
-                <Button
-                  variant="ghost"
-                  onClick={() => setShowOriginal(!showOriginal)}
-                >{`Show ${showOriginal ? "edited" : "original"}`}</Button>
+                {images[imageIndex].originalSrc && (
+                  <Button
+                    variant="ghost"
+                    onClick={() => setShowOriginal(!showOriginal)}
+                  >{`Show ${showOriginal ? "edited" : "original"}`}</Button>
+                )}
               </Flex>
             </Flex>
           </ModalBody>

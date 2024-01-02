@@ -21,10 +21,8 @@ const ErrorPage = () => {
         </Icon>
         <Flex direction="column" align="center" gap="16px" zIndex="2">
           <Text>Error 404:</Text>
-          <Text>Oops! This page couldn't be found.</Text>
-          <Button as="a" href="/" variant="ghost">
-            Check out the homepage!
-          </Button>
+          <Text>Oops! This page couldn't be found,</Text>
+          <Text>try looking elsewhere.</Text>
         </Flex>
       </Center>
     </PageWrapper>

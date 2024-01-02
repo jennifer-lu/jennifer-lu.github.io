@@ -67,6 +67,7 @@ const images = [
     width: 4032,
     height: 3024,
     alt: "University of Waterloo; April 2023",
+    originalSrc: "images/photos/IMG_0011.jpeg",
   },
 ];
 
