@@ -6,20 +6,23 @@ const { definePartsStyle, defineMultiStyleConfig } =
 
 const baseStyle = definePartsStyle({
   list: {
-    bg: "background.200",
+    background: "background.200",
     border: "none",
   },
   item: {
     color: "primary.300",
-    bg: "background.200",
+    background: "background.200",
     _hover: {
-      bg: "background.300",
+      background: "background.300",
+      boxShadow: `0 0 4px var(--chakra-colors-background-500) inset`,
     },
     _focus: {
-      bg: "background.400",
+      background: "background.300",
+      boxShadow: `0 0 4px var(--chakra-colors-background-500) inset`,
     },
     _active: {
-      bg: "background.400",
+      background: "background.400",
+      boxShadow: `0 0 4px var(--chakra-colors-background-500) inset`,
     },
   },
 });

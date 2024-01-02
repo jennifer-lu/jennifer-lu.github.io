@@ -1,46 +1,43 @@
 import { useState } from "react";
 import { RenderPhotoProps } from "react-photo-album";
-import { Box, Flex, Image, Skeleton, Text } from "@chakra-ui/react";
+import { Box, Image, Skeleton } from "@chakra-ui/react";
+
+type GalleryImageProps = {
+  imageIndex: number;
+  setImageIndex: (imageIndex: number) => void;
+  onOpen: () => void;
+} & RenderPhotoProps["imageProps"];
 
 const GalleryImage = ({
+  imageIndex,
+  setImageIndex,
+  onOpen,
   src,
   alt,
   style,
   ...rest
-}: RenderPhotoProps["imageProps"]) => {
+}: GalleryImageProps) => {
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <Box style={style} position="relative" borderRadius="8px" overflow="hidden">
-      {loaded ? (
-        <Box
-          width="100%"
-          height="100%"
-          position="absolute"
-          zIndex="3"
-          backdropFilter="blur(16px)"
-          opacity="0"
-          transition="opacity 0.3s"
-          _hover={{
-            opacity: 1,
-          }}
-        >
-          <Box width="100%" height="100%" bg="background.100" opacity="0.8">
-            <Flex
-              width="100%"
-              height="100%"
-              padding="32px 40px"
-              direction="column"
-              justifyContent="flex-end"
-              gap="4px"
-            >
-              {alt.split("; ").map((text) => {
-                return <Text key={`${src}-${text}`}>{text}</Text>;
-              })}
-            </Flex>
-          </Box>
-        </Box>
-      ) : (
+    <Box
+      style={style}
+      position="relative"
+      borderRadius="8px"
+      overflow="hidden"
+      transition="transform 0.2s"
+      _hover={{
+        transform: "scale(0.98)",
+      }}
+      _active={{
+        transform: "scale(0.95)",
+      }}
+      onClick={() => {
+        setImageIndex(imageIndex);
+        onOpen();
+      }}
+    >
+      {!loaded && (
         <Skeleton
           width="100%"
           height="100%"

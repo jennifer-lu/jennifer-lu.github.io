@@ -3,6 +3,8 @@ import { extendTheme } from "@chakra-ui/react";
 import colors from "./colors";
 import Button from "./components/Button";
 import Menu from "./components/Menu";
+import Modal from "./components/Modal";
+import ModalCloseButton from "./components/ModalCloseButton";
 
 const theme = extendTheme({
   colors,
@@ -15,8 +17,11 @@ const theme = extendTheme({
         400: { default: "light.400", _dark: "dark.400" },
         500: { default: "light.500", _dark: "dark.500" },
       },
+      backgroundAlpha: {
+        500: { default: "lightAlpha.500", _dark: "darkAlpha.500" },
+      },
       primary: {
-        300: { default: "dark.500", _dark: "light.500" },
+        300: { default: "dark.100", _dark: "light.500" },
       },
     },
   },
@@ -31,10 +36,10 @@ const theme = extendTheme({
   styles: {
     global: {
       body: {
-        bg: "background.100",
+        background: "background.100",
         color: "primary.300",
         _select: {
-          bg: "yellow",
+          background: "yellow",
         },
       },
     },
@@ -42,6 +47,8 @@ const theme = extendTheme({
   components: {
     Button,
     Menu,
+    Modal,
+    ModalCloseButton,
   },
 });
 
