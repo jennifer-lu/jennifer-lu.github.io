@@ -1,5 +1,5 @@
 import { ColorModeScript, ChakraProvider } from "@chakra-ui/react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 
 import theme from "./theme/theme";
 import HomePage from "./pages/HomePage";
@@ -9,7 +9,7 @@ import ObjectsPage from "./pages/ObjectsPage";
 import ErrorPage from "./pages/ErrorPage";
 
 const App = () => {
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: "/",
       element: <HomePage />,

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Button,
   Flex,
@@ -52,15 +53,15 @@ const NavBar = () => {
         />
       </Button>
       <HStack display={{ base: "none", md: "flex" }} spacing="8px">
-        <Button as="a" href="/paintings" variant="ghost">
-          Paintings
-        </Button>
-        <Button as="a" href="/photos" variant="ghost">
-          Photos
-        </Button>
-        <Button as="a" href="/objects" variant="ghost">
-          Objects
-        </Button>
+        <Link to="/paintings">
+          <Button variant="ghost">Paintings</Button>
+        </Link>
+        <Link to="/photos">
+          <Button variant="ghost">Photos</Button>
+        </Link>
+        <Link to="/objects">
+          <Button variant="ghost">Objects</Button>
+        </Link>
         <IconButton
           as="a"
           href="https://www.linkedin.com/in/-jennifer/"
