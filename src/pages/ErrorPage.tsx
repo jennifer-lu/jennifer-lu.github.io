@@ -1,5 +1,6 @@
-import { Center, Button, Flex, Icon, Text, useToken } from "@chakra-ui/react";
+import { Center, Icon, useToken } from "@chakra-ui/react";
 
+import Handwriting from "../components/Handwriting";
 import PageWrapper from "../components/PageWrapper";
 
 const ErrorPage = () => {
@@ -19,11 +20,11 @@ const ErrorPage = () => {
             />
           </svg>
         </Icon>
-        <Flex direction="column" align="center" gap="16px" zIndex="2">
-          <Text>Error 404:</Text>
-          <Text>Oops! This page couldn't be found,</Text>
-          <Text>try looking elsewhere.</Text>
-        </Flex>
+        <Handwriting
+          src="images/base/error.png"
+          alt="Error 404/Oops! This page couldn't be found,/try looking elsewhere."
+          height="160px"
+        />
       </Center>
     </PageWrapper>
   );

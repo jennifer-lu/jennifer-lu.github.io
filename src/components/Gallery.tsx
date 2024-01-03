@@ -84,7 +84,7 @@ const Gallery = ({ images }: GalleryProps) => {
                   <Button
                     variant="ghost"
                     onClick={() => setShowOriginal(!showOriginal)}
-                  >{`Show ${showOriginal ? "edited" : "original"}`}</Button>
+                  >{`View ${showOriginal ? "edited" : "original"}`}</Button>
                 )}
               </Flex>
             </Flex>

@@ -2,15 +2,16 @@ import { useEffect, useState } from "react";
 import {
   Button,
   Flex,
-  Heading,
   HStack,
   Icon,
   IconButton,
-  Spacer,
+  Image,
   useColorMode,
+  useToken,
 } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
+import Handwriting from "./Handwriting";
 import NavMenu from "./NavMenu";
 
 const NavBar = () => {
@@ -43,12 +44,13 @@ const NavBar = () => {
       boxShadow={scrolled ? (colorMode === "light" ? "lg" : "dark-lg") : "none"}
       transition="box-shadow 0.3s ease-in-out"
     >
-      <Button as="a" href="/" variant="ghost">
-        <Heading as="h3" size="md">
-          JENNIFER LU
-        </Heading>
+      <Button as="a" href="/" variant="ghost" aria-label="JENNIFER LU">
+        <Handwriting
+          src="images/base/name.png"
+          alt="JENNIFER LU"
+          height="20px"
+        />
       </Button>
-      <Spacer />
       <HStack display={{ base: "none", md: "flex" }} spacing="8px">
         <Button as="a" href="/paintings" variant="ghost">
           Paintings

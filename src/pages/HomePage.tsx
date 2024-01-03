@@ -1,5 +1,6 @@
-import { Center, Flex, Icon, Text, useToken } from "@chakra-ui/react";
+import { Center, Flex, Icon, useToken } from "@chakra-ui/react";
 
+import Handwriting from "../components/Handwriting";
 import PageWrapper from "../components/PageWrapper";
 
 const HomePage = () => {
@@ -19,10 +20,26 @@ const HomePage = () => {
             />
           </svg>
         </Icon>
-        <Flex direction="column" align="center" gap="16px" zIndex="3">
-          <Text>Hi, I'm Jennifer.</Text>
-          <Text>I like making things. Here are</Text>
-          <Text>some things that I've made.</Text>
+        <Flex direction={{ base: "column", md: "row" }} alignItems="flex-end">
+          <Flex display={{ base: "flex", md: "none" }} marginRight="32px">
+            <Handwriting
+              src="images/base/arrowMobile.png"
+              alt="Arrow pointing to navbar"
+              height="min(128px, calc((100vw - 16px) * 128 / 160 * 917 / 2915))"
+            />
+          </Flex>
+          <Handwriting
+            src="images/base/intro.png"
+            alt="Hi, I'm Jennifer./I like making things. Here are/some things that I've made."
+            height="160px"
+          />
+          <Flex display={{ base: "none", md: "flex" }} margin="0 0 96px 8px">
+            <Handwriting
+              src="images/base/arrow.png"
+              alt="Arrow pointing to navbar"
+              height="128px"
+            />
+          </Flex>
         </Flex>
       </Center>
     </PageWrapper>
