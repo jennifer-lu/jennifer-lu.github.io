@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   Flex,
   Icon,
@@ -20,15 +21,15 @@ const NavMenu = () => {
         icon={<FaBars />}
       />
       <MenuList>
-        <MenuItem as="a" href="/paintings">
-          Paintings
-        </MenuItem>
-        <MenuItem as="a" href="/photos">
-          Photos
-        </MenuItem>
-        <MenuItem as="a" href="/objects">
-          Objects
-        </MenuItem>
+        <Link to="/paintings">
+          <MenuItem>Paintings</MenuItem>
+        </Link>
+        <Link to="/photos">
+          <MenuItem>Photos</MenuItem>
+        </Link>
+        <Link to="/objects">
+          <MenuItem>Objects</MenuItem>
+        </Link>
         <MenuItem
           as="a"
           href="https://www.linkedin.com/in/-jennifer/"

@@ -6,9 +6,7 @@ import {
   HStack,
   Icon,
   IconButton,
-  Image,
   useColorMode,
-  useToken,
 } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
