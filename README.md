@@ -1,5 +1,9 @@
 # Personal website
 
+_View at [jennifer-lu.github.io](https://jennifer-lu.github.io/)._
+
+## Development
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
