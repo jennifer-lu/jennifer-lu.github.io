@@ -1,4 +1,4 @@
-import { Image, useToken } from "@chakra-ui/react";
+import { Flex, Image, useToken } from "@chakra-ui/react";
 
 type HandwritingProps = {
   src: string;
@@ -8,7 +8,7 @@ type HandwritingProps = {
 
 const Handwriting = ({ src, alt, height }: HandwritingProps) => {
   return (
-    <div
+    <Flex
       style={{
         WebkitMaskImage: `url(${src})`,
         WebkitMaskSize: "contain",
@@ -24,7 +24,7 @@ const Handwriting = ({ src, alt, height }: HandwritingProps) => {
         maxHeight={height}
         opacity={0}
       ></Image>
-    </div>
+    </Flex>
   );
 };
 

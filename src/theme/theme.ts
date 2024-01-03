@@ -11,11 +11,11 @@ const theme = extendTheme({
   semanticTokens: {
     colors: {
       background: {
-        100: { default: "light.100", _dark: "dark.100" },
-        200: { default: "light.200", _dark: "dark.200" },
+        100: { default: "light.100", _dark: "dark.500" },
+        200: { default: "light.200", _dark: "dark.400" },
         300: { default: "light.300", _dark: "dark.300" },
-        400: { default: "light.400", _dark: "dark.400" },
-        500: { default: "light.500", _dark: "dark.500" },
+        400: { default: "light.400", _dark: "dark.200" },
+        500: { default: "light.500", _dark: "dark.100" },
       },
       backgroundAlpha: {
         500: { default: "lightAlpha.500", _dark: "darkAlpha.500" },

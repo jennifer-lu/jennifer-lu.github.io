@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { RenderPhotoProps } from "react-photo-album";
-import { Box, Image, Skeleton } from "@chakra-ui/react";
+import { Box, Flex, Image, Skeleton } from "@chakra-ui/react";
 
 type GalleryImageProps = {
   imageIndex: number;
@@ -45,13 +45,23 @@ const GalleryImage = ({
           endColor="background.500"
         />
       )}
-      <Image
-        loading="lazy"
-        src={src}
-        alt={alt}
-        {...rest}
-        onLoad={() => setLoaded(true)}
-      />
+      <Flex position="relative">
+        <Image
+          loading="lazy"
+          src={src}
+          alt={alt}
+          {...rest}
+          onLoad={() => setLoaded(true)}
+          zIndex={2}
+        />
+        <Flex
+          position="absolute"
+          width="100%"
+          height="100%"
+          background="background.500"
+          borderRadius="8px"
+        />
+      </Flex>
     </Box>
   );
 };

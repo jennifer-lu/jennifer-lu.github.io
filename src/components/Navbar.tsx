@@ -39,7 +39,7 @@ const NavBar = () => {
       align="center"
       justifyContent="space-between"
       gap="16px"
-      zIndex="100"
+      zIndex={100}
       background="background.100"
       boxShadow={scrolled ? (colorMode === "light" ? "lg" : "dark-lg") : "none"}
       transition="box-shadow 0.3s ease-in-out"

@@ -18,7 +18,9 @@ import { CloseIcon } from "@chakra-ui/icons";
 import GalleryImage from "./GalleryImage";
 
 type ImageType = {
-  originalSrc?: string;
+  otherSrc?: string;
+  srcType?: string;
+  otherSrcType?: string;
 } & Photo;
 
 type GalleryProps = {
@@ -28,12 +30,12 @@ type GalleryProps = {
 const Gallery = ({ images }: GalleryProps) => {
   const bodyRef = useRef(null);
   const [imageIndex, setImageIndex] = useState(0);
-  const [showOriginal, setShowOriginal] = useState(false);
+  const [showOther, setShowOther] = useState(false);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleClose = () => {
-    setShowOriginal(false);
+    setShowOther(false);
     onClose();
   };
 
@@ -48,7 +50,7 @@ const Gallery = ({ images }: GalleryProps) => {
       >
         <ModalOverlay background="backgroundAlpha.500" />
         <ModalContent
-          maxWidth={`min(95vw, calc((98vh - 128px) * ${images[imageIndex].width} / ${images[imageIndex].height}))`}
+          maxWidth={`min(95vw, calc((97vh - 128px) * ${images[imageIndex].width} / ${images[imageIndex].height}))`}
         >
           <ModalBody ref={bodyRef} padding="8px">
             <Flex justify="flex-end">
@@ -60,16 +62,56 @@ const Gallery = ({ images }: GalleryProps) => {
               ></IconButton>
             </Flex>
             <Flex direction="column" padding="8px 16px 16px 16px" gap="24px">
-              <Image
-                loading="lazy"
-                src={
-                  showOriginal
-                    ? images[imageIndex].originalSrc
-                    : images[imageIndex].src
-                }
-                alt={images[imageIndex].alt}
-                borderRadius="8px"
-              />
+              <Flex position="relative">
+                {showOther && images[imageIndex].otherSrcType === "print" ? (
+                  <Flex position="relative">
+                    <Flex
+                      style={{
+                        WebkitMaskImage: `url(${images[imageIndex].otherSrc})`,
+                        WebkitMaskSize: "contain",
+                        maskImage: `url(${images[imageIndex].otherSrc})`,
+                        maskSize: "contain",
+                      }}
+                      background="dark.100"
+                      zIndex={3}
+                    >
+                      <Image
+                        loading="lazy"
+                        src={images[imageIndex].otherSrc}
+                        alt={images[imageIndex].alt}
+                        opacity={0}
+                      />
+                    </Flex>
+                    <Flex
+                      position="absolute"
+                      width="100%"
+                      height="100%"
+                      background="light.500"
+                      borderRadius="8px"
+                      zIndex={2}
+                    />
+                  </Flex>
+                ) : (
+                  <Image
+                    loading="lazy"
+                    src={
+                      showOther
+                        ? images[imageIndex].otherSrc
+                        : images[imageIndex].src
+                    }
+                    alt={images[imageIndex].alt}
+                    borderRadius="8px"
+                    zIndex={2}
+                  />
+                )}
+                <Flex
+                  position="absolute"
+                  width="100%"
+                  height="100%"
+                  background="background.500"
+                  borderRadius="8px"
+                />
+              </Flex>
               <Flex align="flex-end" justifyContent="space-between">
                 <Flex direction="column" gap="4px">
                   {(images[imageIndex].alt ?? "").split("; ").map((text) => {
@@ -80,11 +122,15 @@ const Gallery = ({ images }: GalleryProps) => {
                     );
                   })}
                 </Flex>
-                {images[imageIndex].originalSrc && (
+                {images[imageIndex].otherSrc && (
                   <Button
                     variant="ghost"
-                    onClick={() => setShowOriginal(!showOriginal)}
-                  >{`View ${showOriginal ? "edited" : "original"}`}</Button>
+                    onClick={() => setShowOther(!showOther)}
+                  >{`View ${
+                    showOther
+                      ? images[imageIndex].srcType
+                      : images[imageIndex].otherSrcType
+                  }`}</Button>
                 )}
               </Flex>
             </Flex>
